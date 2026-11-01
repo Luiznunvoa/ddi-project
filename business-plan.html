@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>FylFox — Business Plan</title>
+<style>
+  :root{
+    --orange:#FF933E; --yellow:#FFCB56; --cream:#FFE9A9; --blue:#73A5CA;
+    --ink:#241C14; --muted:#6B5C4D; --line:#EDE2D2;
+  }
+  @page{ size:A4; margin:18mm 16mm 16mm 16mm; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:"Carlito","Calibri","Segoe UI",system-ui,sans-serif;
+    color:var(--ink); font-size:10.2pt; line-height:1.45;
+  }
+  h1{font-size:30pt;letter-spacing:-1.2pt;line-height:1.05;font-weight:800}
+  h2{page-break-after:avoid;font-size:15pt;letter-spacing:-.4pt;font-weight:800;margin:0 0 6pt;padding-bottom:4pt;border-bottom:2px solid var(--orange)}
+  h3{font-size:11pt;font-weight:800;margin:12pt 0 4pt;color:#3A2D20;page-break-after:avoid}
+  p{margin:0 0 7pt}
+  ul{margin:0 0 8pt 14pt} li{margin-bottom:3pt}
+  section{page-break-inside:auto;margin-bottom:16pt}
+  .page-break{page-break-before:always}
+  .eyebrow{font-size:8pt;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);margin-bottom:3pt}
+
+  /* cover */
+  .cover{height:310mm;display:flex;flex-direction:column;justify-content:center;
+    background:linear-gradient(135deg,#FFF6E4 0%,#FFE9A9 55%,#FFD98A 100%);
+    margin:-26mm -24mm 0;width:calc(100% + 48mm);padding:0 30mm;}
+  .wordmark{font-size:46pt;font-weight:800;letter-spacing:-2pt;color:var(--orange);line-height:1}
+  .cover .lede{font-size:13pt;color:#4A3B2C;max-width:30em;margin-top:12pt}
+  .pill{display:inline-block;background:rgba(36,28,20,.86);color:var(--cream);
+    font-size:8pt;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:5pt 11pt;border-radius:99pt}
+  .coverfoot{margin-top:26pt;font-size:9pt;color:var(--muted);border-top:1px solid rgba(36,28,20,.2);padding-top:10pt}
+
+  table{width:100%;border-collapse:collapse;page-break-inside:avoid;margin:6pt 0 10pt;font-size:9.2pt}
+  th,td{border:1px solid var(--line);padding:4.5pt 6pt;text-align:left;vertical-align:top}
+  th{background:var(--cream);font-weight:800;font-size:8.6pt;text-transform:uppercase;letter-spacing:.05em}
+  td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+  tr.total td{background:#FFF6E4;font-weight:800}
+
+  .grid{display:flex;gap:9pt;margin:8pt 0;page-break-inside:avoid}
+  .card{flex:1;border:1px solid var(--line);border-radius:7pt;padding:9pt;background:#FFFDF8}
+  .card.hero{border-color:var(--orange);border-width:2px;background:#FFF6E4}
+  .card .plan{font-size:12pt;font-weight:800}
+  .card .price{font-size:19pt;font-weight:800;color:var(--orange);letter-spacing:-.8pt;margin:3pt 0}
+  .card .price small{font-size:9pt;color:var(--muted);font-weight:600;letter-spacing:0}
+  .card ul{margin:5pt 0 0 12pt;font-size:8.8pt}
+  .tag{display:inline-block;background:var(--orange);color:#fff;font-size:7pt;font-weight:800;
+    letter-spacing:.1em;text-transform:uppercase;padding:2pt 6pt;border-radius:99pt;margin-bottom:3pt}
+
+  .note{page-break-inside:avoid;background:#FFFBF0;border-left:3px solid var(--yellow);padding:7pt 9pt;font-size:9pt;color:#4A3B2C;margin:8pt 0}
+  .kpis{display:flex;gap:9pt;margin:8pt 0;page-break-inside:avoid}
+  .kpi{flex:1;border:1px solid var(--line);border-radius:7pt;padding:8pt;text-align:center;background:#fff}
+  .kpi .n{font-size:16pt;font-weight:800;letter-spacing:-.6pt;color:var(--ink)}
+  .kpi .l{font-size:7.8pt;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+
+  .chart{page-break-inside:avoid;border:1px solid var(--line);border-radius:7pt;padding:10pt;background:#FFFDF8;margin:8pt 0}
+  .bars{display:flex;align-items:flex-end;gap:16pt;height:120pt;padding:0 6pt;border-bottom:1px solid var(--line)}
+  .bargroup{flex:1;display:flex;align-items:flex-end;justify-content:center;gap:11pt;height:100%}
+  .bar{width:23pt;border-radius:4pt 4pt 0 0;position:relative}
+  .bar span{position:absolute;top:-13pt;left:50%;transform:translateX(-50%);font-size:7.6pt;font-weight:800;white-space:nowrap}
+  .b-rev{background:var(--orange)} .b-cost{background:var(--blue)}
+  .xaxis{display:flex;gap:16pt;padding:4pt 6pt 0} .xaxis div{flex:1;text-align:center;font-size:8.4pt;font-weight:700}
+  .legend{font-size:8pt;color:var(--muted);margin-top:5pt}
+  .legend i{display:inline-block;width:8pt;height:8pt;border-radius:2pt;margin:0 3pt 0 10pt;vertical-align:-1pt}
+  .foot{font-size:8pt;color:var(--muted);border-top:1px solid var(--line);padding-top:6pt;margin-top:14pt}
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="wordmark">FylFox</div>
+  <h1 style="margin-top:10pt">Business Plan</h1>
+  <p class="lede">A supplier document workspace for UK small businesses. Invoices, purchase orders
+  and credit notes in one searchable place — read, matched and checked before anyone presses pay.</p>
+  <div style="margin-top:20pt"><span class="pill">Concept stage · pre-pilot</span></div>
+  <div class="coverfoot">
+    Includes market and operating plan, pricing architecture, unit economics and a three-year
+    financial projection.<br>
+    <strong>All figures are planning assumptions to be replaced with pilot data.</strong>
+    Prepared October 2026.
+  </div>
+</div>
+
+<section class="page-break">
+  <div class="eyebrow">01</div>
+  <h2>Executive Summary</h2>
+  <p>FylFox is a cloud-based SaaS platform that helps UK small businesses organise, check and
+  visualise supplier-related financial documents. Supplier invoices, purchase orders and credit
+  notes are uploaded into a single searchable workspace, where AI-assisted processing classifies
+  each document and extracts its key fields. Configurable checks then compare the extracted data
+  against related documents and business rules, flagging duplicates, missing information and
+  mismatches for a person to review.</p>
+  <p>FylFox does not replace the accounting package, provide outsourced bookkeeping, or make final
+  payment decisions. It occupies the checking step between receiving a document and approving it
+  for payment — the step that is currently done by eye, when there is time.</p>
+
+  <div class="kpis">
+    <div class="kpi"><div class="n">£39–£199</div><div class="l">Monthly plans</div></div>
+    <div class="kpi"><div class="n">~82%</div><div class="l">Target gross margin</div></div>
+    <div class="kpi"><div class="n">420</div><div class="l">Year-3 customers</div></div>
+    <div class="kpi"><div class="n">£308k</div><div class="l">Year-3 revenue</div></div>
+    <div class="kpi"><div class="n">£180k</div><div class="l">Funding required</div></div>
+  </div>
+
+  <h3>The ask</h3>
+  <p>Approximately <strong>£180,000</strong> of seed funding to cover the validation programme,
+  MVP build and the first two years of operation, reaching operating breakeven during Year 3 at
+  roughly 300 paying customers.</p>
+
+  <div class="note"><strong>Evidence status.</strong> Every number in this plan is a planning
+  assumption or a research target, not a verified finding. The validation programme in Section 8 is
+  designed to falsify these assumptions before capital is committed at scale.</div>
+</section>
+
+<section>
+  <div class="eyebrow">02</div>
+  <h2>Problem &amp; Opportunity</h2>
+  <p>Supplier documents arrive through scattered channels — email attachments, supplier portals,
+  printed post — and are stored across shared folders and spreadsheets with no reliable link
+  between related records. Three consequences follow:</p>
+  <ul>
+    <li><strong>Hunting for documents.</strong> Finding one invoice means searching several inboxes
+    and folders, every time a supplier queries a payment.</li>
+    <li><strong>Duplicate payments.</strong> The same invoice is chased, re-sent, re-entered — and
+    paid twice before anyone notices.</li>
+    <li><strong>Mismatches found late.</strong> Ordered 100, delivered 90, invoiced 100. Spotted at
+    month-end, if at all.</li>
+  </ul>
+  <p>The competing alternatives each leave the gap open: a shared folder makes documents findable
+  but performs no checks; an accounting package records transactions but is not designed for
+  reviewing the source documents behind them; outsourced bookkeeping removes the work but also the
+  visibility and control.</p>
+</section>
+
+<section>
+  <div class="eyebrow">03</div>
+  <h2>Target Customer &amp; Market</h2>
+  <table>
+    <tr><th style="width:32%">Dimension</th><th>Initial assumption</th></tr>
+    <tr><td>Market</td><td>United Kingdom</td></tr>
+    <tr><td>Business size</td><td>Approximately 5–49 employees</td></tr>
+    <tr><td>Document volume</td><td>Approximately 100–500 supplier documents per month</td></tr>
+    <tr><td>Primary user</td><td>Accounts-payable clerk, bookkeeper, finance administrator, office manager</td></tr>
+    <tr><td>Decision maker</td><td>Owner, finance manager, or external accountant</td></tr>
+    <tr><td>Existing tools</td><td>Email, shared folders, spreadsheets, plus an accounting package</td></tr>
+  </table>
+  <p>The buyer and the daily user are usually different people: the user feels the pain, the owner
+  approves the spend. Messaging and pricing must address both.</p>
+
+  <h3>Market sizing (illustrative, to validate)</h3>
+  <table>
+    <tr><th>Layer</th><th class="n">Businesses</th><th class="n">Annual value</th><th>Basis</th></tr>
+    <tr><td>TAM — UK businesses with 5–249 employees</td><td class="n">~230,000</td><td class="n">£262m</td><td>At £95 average monthly subscription</td></tr>
+    <tr><td>SAM — 5–49 employees, document-heavy sectors</td><td class="n">~70,000</td><td class="n">£80m</td><td>Trade, wholesale, manufacturing, hospitality, services</td></tr>
+    <tr class="total"><td>SOM — realistic 3-year reach</td><td class="n">~420</td><td class="n">£308k</td><td>0.6% of SAM via direct and accountant channels</td></tr>
+  </table>
+  <div class="note">Business-count layers are order-of-magnitude estimates drawn from published UK
+  SME population data and must be re-derived from a current official source before external use.</div>
+</section>
+
+<section class="page-break">
+  <div class="eyebrow">04</div>
+  <h2>Product &amp; Initial Scope</h2>
+  <p>The MVP covers <strong>one workflow</strong>: checking supplier invoices against purchase
+  orders and credit notes. English-language documents, GBP amounts, UK date conventions.</p>
+  <table>
+    <tr><th style="width:50%">In scope for the first pilot</th><th>Deliberately deferred</th></tr>
+    <tr><td>
+      <ul style="margin-bottom:0">
+        <li>Upload of PDF, JPG and PNG documents</li>
+        <li>AI-assisted field extraction with a human review step</li>
+        <li>Catalogue searchable by supplier, type, date, amount, reference</li>
+        <li>Invoice ↔ PO ↔ credit-note matching with flags for duplicates, gaps and mismatches</li>
+        <li>Exceptions queue with plain-language explanations and recorded outcomes</li>
+        <li>Dashboard: documents processed, awaiting review, recent exceptions</li>
+        <li>Single workspace with role-appropriate access</li>
+      </ul>
+    </td><td>
+      <ul style="margin-bottom:0">
+        <li>Accounting-system integrations</li>
+        <li>Delivery notes and supplier statements</li>
+        <li>Customer-specific configurable checks</li>
+        <li>Multi-entity workspaces</li>
+        <li>Non-UK document formats and currencies</li>
+      </ul>
+      <p style="margin-top:6pt;font-size:9pt">A narrow scope keeps the pilot fast enough to produce
+      a clear answer about the core workflow.</p>
+    </td></tr>
+  </table>
+</section>
+
+<section>
+  <div class="eyebrow">05</div>
+  <h2>Pricing</h2>
+  <p><strong>Priced on documents, not on people.</strong> Volume tracks both the value delivered and
+  the main cost driver (AI processing and storage), and avoids a per-seat charge that would
+  discourage the whole finance team from using the tool. Higher tiers add capability, not just
+  headcount.</p>
+
+  <div class="grid">
+    <div class="card">
+      <div class="plan">Starter</div>
+      <div class="price">£39<small> /month</small></div>
+      <div style="font-size:8.6pt;color:var(--muted);font-weight:700">150 documents / month</div>
+      <ul>
+        <li>Upload and catalogue</li>
+        <li>Core invoice checks</li>
+        <li>Search and filters</li>
+        <li>Unlimited team members</li>
+        <li>12-month retention</li>
+      </ul>
+    </div>
+    <div class="card hero">
+      <span class="tag">Most relevant</span>
+      <div class="plan">Growth</div>
+      <div class="price">£89<small> /month</small></div>
+      <div style="font-size:8.6pt;color:var(--muted);font-weight:700">500 documents / month</div>
+      <ul>
+        <li>Everything in Starter</li>
+        <li>Configurable checks</li>
+        <li>Accounting integrations</li>
+        <li>Exception reporting</li>
+        <li>24-month retention</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="plan">Business</div>
+      <div class="price">£199<small> /month</small></div>
+      <div style="font-size:8.6pt;color:var(--muted);font-weight:700">1,500 documents / month</div>
+      <ul>
+        <li>Everything in Growth</li>
+        <li>Advanced admin controls</li>
+        <li>Extended retention and reporting</li>
+        <li>Priority support</li>
+        <li>Onboarding assistance</li>
+      </ul>
+    </div>
+  </div>
+
+  <table>
+    <tr><th>Commercial term</th><th>Proposal</th><th>Rationale</th></tr>
+    <tr><td>Overage</td><td>£0.09 per document above the plan allowance</td><td>Covers marginal cost with margin; prompts an upgrade rather than a surprise bill</td></tr>
+    <tr><td>Annual payment</td><td>Two months free (≈17% discount)</td><td>Improves cash position and reduces churn in the first year</td></tr>
+    <tr><td>Free trial</td><td>14 days, 50 documents, no card</td><td>Lets the daily user prove value before the owner is asked to approve spend</td></tr>
+    <tr><td>Pilot pricing</td><td>First five businesses: free during the 4–6 week pilot, then 50% for 12 months</td><td>Buys evidence and reference customers; price is locked as a reward for the risk taken</td></tr>
+    <tr><td>Accountant partners</td><td>20% recurring referral commission, or a bundled multi-client workspace</td><td>One partner can introduce many clients at low acquisition cost</td></tr>
+  </table>
+  <div class="note"><strong>Prices are hypotheses.</strong> They are anchored to observed
+  small-business document-management and AP-automation subscriptions and must be confirmed in
+  customer interviews (Stage 2 of the validation plan) before being published.</div>
+</section>
+
+<section>
+  <div class="eyebrow">06</div>
+  <h2>Unit Economics</h2>
+  <p>The critical question is whether subscription revenue covers per-document processing cost at
+  small scale. Modelled on a representative Growth customer processing 320 documents per month.</p>
+  <table>
+    <tr><th>Line</th><th class="n">Per document</th><th class="n">Per customer / month</th><th>Note</th></tr>
+    <tr><td>Subscription revenue</td><td class="n">£0.278</td><td class="n">£89.00</td><td>Growth plan, 320 documents used</td></tr>
+    <tr><td>AI extraction and classification</td><td class="n">£0.030</td><td class="n">£9.60</td><td>Main variable cost; falls with batching and model choice</td></tr>
+    <tr><td>Storage and bandwidth</td><td class="n">£0.006</td><td class="n">£1.92</td><td>Object storage plus retention</td></tr>
+    <tr><td>Application hosting and database</td><td class="n">£0.012</td><td class="n">£3.84</td><td>Shared infrastructure, allocated</td></tr>
+    <tr><td>Support and payment fees</td><td class="n">£0.003</td><td class="n">£0.96</td><td>Card fees plus low-touch support</td></tr>
+    <tr class="total"><td>Gross profit</td><td class="n">£0.227</td><td class="n">£72.68</td><td>Gross margin ≈ 82%</td></tr>
+  </table>
+
+  <div class="kpis">
+    <div class="kpi"><div class="n">£85</div><div class="l">Blended ARPA / month</div></div>
+    <div class="kpi"><div class="n">£260</div><div class="l">Target CAC</div></div>
+    <div class="kpi"><div class="n">3.6 mo</div><div class="l">CAC payback</div></div>
+    <div class="kpi"><div class="n">2.5%</div><div class="l">Monthly churn target</div></div>
+    <div class="kpi"><div class="n">£2,790</div><div class="l">LTV (gross profit)</div></div>
+  </div>
+  <p>At a 2.5% monthly churn rate the average customer life is 40 months, giving an LTV of roughly
+  £2,790 in gross profit against a £260 acquisition cost — an LTV/CAC ratio of about 10.7. This
+  ratio is comfortable enough to absorb considerable error in the churn and CAC assumptions, which
+  is deliberate at this stage of evidence.</p>
+</section>
+
+<section class="page-break">
+  <div class="eyebrow">07</div>
+  <h2>Financial Projections</h2>
+  <p>Three years from first paid customer. Customer counts are year-end; revenue is calculated on
+  the average active base through each year, which is why Year 1 revenue looks small relative to
+  its closing customer count.</p>
+
+  <table>
+    <tr><th>Metric</th><th class="n">Year 1</th><th class="n">Year 2</th><th class="n">Year 3</th></tr>
+    <tr><td>Customers at year end</td><td class="n">40</td><td class="n">160</td><td class="n">420</td></tr>
+    <tr><td>Average active customers</td><td class="n">18</td><td class="n">90</td><td class="n">270</td></tr>
+    <tr><td>Blended ARPA per month</td><td class="n">£80</td><td class="n">£90</td><td class="n">£95</td></tr>
+    <tr><td>Revenue</td><td class="n">£17,300</td><td class="n">£97,200</td><td class="n">£307,800</td></tr>
+    <tr><td>Cost of revenue</td><td class="n">£4,800</td><td class="n">£19,400</td><td class="n">£55,400</td></tr>
+    <tr><td>Gross profit</td><td class="n">£12,500</td><td class="n">£77,800</td><td class="n">£252,400</td></tr>
+    <tr><td>Gross margin</td><td class="n">72%</td><td class="n">80%</td><td class="n">82%</td></tr>
+    <tr><td>Product and engineering</td><td class="n">£58,000</td><td class="n">£102,000</td><td class="n">£132,000</td></tr>
+    <tr><td>Sales and marketing</td><td class="n">£14,000</td><td class="n">£41,000</td><td class="n">£72,000</td></tr>
+    <tr><td>Support and operations</td><td class="n">£8,000</td><td class="n">£18,000</td><td class="n">£22,000</td></tr>
+    <tr><td>Compliance, legal and admin</td><td class="n">£12,000</td><td class="n">£14,000</td><td class="n">£14,000</td></tr>
+    <tr><td>Total operating costs</td><td class="n">£92,000</td><td class="n">£175,000</td><td class="n">£240,000</td></tr>
+    <tr class="total"><td>Operating profit / (loss)</td><td class="n">(£79,500)</td><td class="n">(£97,200)</td><td class="n">£12,400</td></tr>
+    <tr><td>Cumulative position</td><td class="n">(£79,500)</td><td class="n">(£176,700)</td><td class="n">(£164,300)</td></tr>
+  </table>
+
+  <div class="chart">
+    <div class="bars">
+      <div class="bargroup">
+        <div class="bar b-rev"  style="height:5.6%"><span>£17k</span></div>
+        <div class="bar b-cost" style="height:31.4%"><span>£97k</span></div>
+      </div>
+      <div class="bargroup">
+        <div class="bar b-rev"  style="height:31.6%"><span>£97k</span></div>
+        <div class="bar b-cost" style="height:63.1%"><span>£194k</span></div>
+      </div>
+      <div class="bargroup">
+        <div class="bar b-rev"  style="height:100%"><span>£308k</span></div>
+        <div class="bar b-cost" style="height:95.9%"><span>£295k</span></div>
+      </div>
+    </div>
+    <div class="xaxis"><div>Year 1</div><div>Year 2</div><div>Year 3</div></div>
+    <div class="legend"><i class="b-rev"></i>Revenue <i class="b-cost"></i>Total costs (cost of revenue + operating)</div>
+  </div>
+
+  <h3>Funding and runway</h3>
+  <p>Peak cumulative cash requirement is approximately <strong>£177,000</strong> at the end of Year 2.
+  A raise of <strong>£180,000</strong> provides 24 months of runway to the breakeven point, with a
+  thin contingency. Breakeven occurs at roughly <strong>300 average active customers</strong>, or
+  about £24,000 of monthly recurring revenue against the Year 3 cost base.</p>
+
+  <h3>Sensitivity</h3>
+  <table>
+    <tr><th>Scenario</th><th class="n">Yr-3 customers</th><th class="n">Yr-3 revenue</th><th class="n">Yr-3 operating result</th></tr>
+    <tr><td>Downside — slower adoption, 4% monthly churn</td><td class="n">210</td><td class="n">£154,000</td><td class="n">(£116,000)</td></tr>
+    <tr><td>Base — as modelled above</td><td class="n">420</td><td class="n">£308,000</td><td class="n">£12,400</td></tr>
+    <tr><td>Upside — accountant channel performs</td><td class="n">650</td><td class="n">£476,000</td><td class="n">£150,000</td></tr>
+  </table>
+  <div class="note">The single largest swing factor is the accountant-partner channel: one firm can
+  introduce many clients at near-zero marginal acquisition cost. Testing this channel early is
+  therefore worth more than optimising direct outreach.</div>
+</section>
+
+<section>
+  <div class="eyebrow">08</div>
+  <h2>Go-to-Market &amp; Validation Plan</h2>
+  <p>Validation runs in stages. Each answers one question, and each is capable of stopping the
+  project. The problem and the workflow are tested before the MVP is built.</p>
+  <table>
+    <tr><th style="width:17%">Stage</th><th style="width:25%">Question</th><th>Method</th><th style="width:25%">Evidence needed to continue</th></tr>
+    <tr><td><strong>1. Customer discovery</strong></td><td>Does the problem exist and recur?</td><td>Interview 8–12 UK finance/admin staff plus owners and bookkeepers; walk through their most recent invoice task. Do not pitch.</td><td>A consistent majority describe the same friction unprompted, with concrete recent examples</td></tr>
+    <tr><td><strong>2. Workflow and demand</strong></td><td>Is this the painful part, and worth paying for?</td><td>Map receipt → approval; rank the most painful tasks; react to a realistic subscription price.</td><td>Checking ranks among the top pains; interviewees accept a plausible price and agree to trial</td></tr>
+    <tr><td><strong>3. Prototype testing</strong></td><td>Can users complete the workflow?</td><td>Clickable prototype with 5–8 target users.</td><td>Most complete the tasks unaided and interpret the flags correctly</td></tr>
+    <tr><td><strong>4. MVP pilot</strong></td><td>Does it work on real documents, and do users stay?</td><td>4–6 weeks with 3–5 businesses; compare FylFox output against existing manual checks.</td><td>Measured against thresholds set before the pilot begins</td></tr>
+    <tr><td><strong>5. Decision</strong></td><td>Expand, refine, or stop?</td><td>Review results against those thresholds.</td><td>Workflow completed, extraction reliable, alerts useful, credible willingness to pay</td></tr>
+  </table>
+
+  <h3>Acquisition channels to test</h3>
+  <ul>
+    <li><strong>Accountant and bookkeeping partnerships</strong> — highest leverage; one partner introduces many clients.</li>
+    <li><strong>Accounting-software marketplaces</strong> — listing and integration give distribution plus credibility.</li>
+    <li><strong>Direct outreach</strong> — slowest and most expensive, but the fastest source of discovery evidence in Year 1.</li>
+  </ul>
+</section>
+
+<section>
+  <div class="eyebrow">09</div>
+  <h2>Operations, Risk &amp; Compliance</h2>
+  <h3>Main operating costs</h3>
+  <p>Cloud hosting and document storage, AI extraction and processing, product development,
+  customer support, security and compliance.</p>
+
+  <h3>Riskiest assumptions, in order</h3>
+  <table>
+    <tr><th style="width:5%">#</th><th style="width:45%">Assumption</th><th>Mitigation</th></tr>
+    <tr><td>1</td><td>Extraction and matching are accurate enough on real documents that reviewing the output is faster than doing the work manually</td><td>Human-in-the-loop review on every uncertain field; measure corrections per document during the pilot and set a pass threshold in advance</td></tr>
+    <tr><td>2</td><td>Alerts are specific enough to be trusted — a noisy queue will be ignored</td><td>Track useful vs. unhelpful alerts as a headline pilot metric; tune rules for precision over recall</td></tr>
+    <tr><td>3</td><td>The problem justifies another subscription and another system to learn</td><td>Free trial and pilot pricing lower the commitment; behavioural evidence (continued use) governs the decision, not stated enthusiasm</td></tr>
+    <tr><td>4</td><td>Document-volume pricing covers per-document cost at small scale</td><td>Instrument cost per document from day one; overage pricing and plan limits protect the margin</td></tr>
+  </table>
+
+  <h3>Compliance</h3>
+  <p>Supplier documents contain personal and commercially sensitive data, so UK GDPR obligations
+  apply from the first pilot: a lawful basis and data-processing agreement with each customer, UK
+  or EU data residency, encryption in transit and at rest, access controls, retention limits
+  aligned to the plan tiers, and a documented sub-processor list covering the AI provider. Customers
+  retain their accounting records; FylFox is a processor, not a system of record.</p>
+</section>
+
+<section>
+  <div class="eyebrow">10</div>
+  <h2>Long-Term Vision</h2>
+  <p>Not a committed release plan; features would be introduced incrementally based on customer
+  feedback.</p>
+  <table>
+    <tr><th style="width:24%">Dimension</th><th>Direction</th></tr>
+    <tr><td>Segment</td><td>UK SMEs of roughly 5–249 employees, with multiple finance and administration users and access levels for reviewers and administrators</td></tr>
+    <tr><td>Document coverage</td><td>Invoices, purchase orders, credit notes, delivery notes and supplier statements — classified, extracted and matched</td></tr>
+    <tr><td>Checking</td><td>Configurable checks for duplicates, missing documents and inconsistencies between ordered, delivered, credited and invoiced amounts, with recorded decisions</td></tr>
+    <tr><td>Reporting</td><td>Dashboards covering supplier activity, document volumes, outstanding exceptions and recurring mismatches</td></tr>
+    <tr><td>Integrations</td><td>Selected accounting and supplier-management systems, to reduce duplicate entry</td></tr>
+    <tr><td>Scale</td><td>English-language and GBP-first; expansion beyond the UK only after validated demand</td></tr>
+  </table>
+  <p>Throughout, AI supports processing and prioritisation while users remain responsible for
+  confirming information and making accounting or payment decisions.</p>
+
+  <div class="foot">
+    <strong>FylFox — supplier document workspace for UK small businesses.</strong>
+    Concept business plan. All financial figures are planning assumptions pending pilot validation
+    and should not be presented as performance claims.
+  </div>
+</section>
+
+</body>
+</html>
